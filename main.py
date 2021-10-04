@@ -1,13 +1,13 @@
 from flask import Flask
 from flask import request
 from flask import make_response
+from flask import redirect
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    response = make_response('<h1>Ten dokument zawiera plik cookie!</h1>')
-    response.set_cookie('odpoweidz', '42')
-    return response
+    return redirect('https://www.facebook.com')
 
 @app.route('/user/<name>')
 def user(name):
