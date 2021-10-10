@@ -18,7 +18,7 @@ def user(name):
 @app.route('/request/')
 def request():
     user_agent = request.headers.get('User-Agent')
-    return f'<p>Twoją przeglądarką jest{user_agent}'
+    return f'<p>Twoją przeglądarką jest {user_agent}'
 
 @app.errorhandler(404)
 def page_not_found(e):
