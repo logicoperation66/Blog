@@ -10,13 +10,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/user/<id>')
-def get_user(id):
-    user = load_user(id)
-    if not user:
-        abort(404)
-    return f'<h1>Witaj, {user.name}</h1>'
-
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
