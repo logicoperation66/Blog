@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
 from flask import make_response
 from flask import redirect
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect('https://www.facebook.com')
+    return render_template('index.html')
 
 @app.route('/user/<id>')
 def get_user(id):
@@ -19,7 +19,7 @@ def get_user(id):
 
 @app.route('/user/<name>')
 def user(name):
-    return f'<h1>Witaj, {name}!</h1>'
+    return render_template('user.html', name=name)
 
 @app.route('/request/')
 def request():
